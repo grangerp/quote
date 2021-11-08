@@ -1,0 +1,67 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  annotations:
+    getambassador.io/rolloutId: f71c2400-0068-4077-8647-751fc6aa7bc6
+  creationTimestamp: null
+  name: quote
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: quote
+  strategy:
+    canary:
+      canaryService: quote-canary
+      stableService: quote
+      steps:
+      - setWeight: 10
+      - pause:
+          duration: 12
+      - setWeight: 20
+      - pause:
+          duration: 12
+      - setWeight: 30
+      - pause:
+          duration: 12
+      - setWeight: 40
+      - pause:
+          duration: 12
+      - setWeight: 50
+      - pause:
+          duration: 12
+      - setWeight: 60
+      - pause:
+          duration: 12
+      - setWeight: 70
+      - pause:
+          duration: 12
+      - setWeight: 80
+      - pause:
+          duration: 12
+      - setWeight: 90
+      - pause:
+          duration: 12
+      - setWeight: 100
+      - pause:
+          duration: 12
+      trafficRouting:
+        ambassador:
+          mappings:
+          - quote-backend
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: quote
+    spec:
+      containers:
+      - image: datawire/quote:0.5.0
+        name: backend
+        ports:
+        - containerPort: 8080
+          name: http
+        resources: {}
+status:
+  blueGreen: {}
+  canary: {}
