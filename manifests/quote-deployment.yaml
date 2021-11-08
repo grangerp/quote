@@ -21,3 +21,10 @@ spec:
         ports:
         - name: http
           containerPort: 8080
+        resources:
+          requests:
+            memory: "500Mi"
+            cpu: "250m"
+          limits:
+            memory: "728Mi"
+            cpu: "500m"
