@@ -2,11 +2,11 @@ apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
   annotations:
-    getambassador.io/rolloutId: f71c2400-0068-4077-8647-751fc6aa7bc6
+    getambassador.io/rolloutId: ecf3c221-02b5-4697-b35f-d4711f381105
   creationTimestamp: null
   name: quote
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: quote
