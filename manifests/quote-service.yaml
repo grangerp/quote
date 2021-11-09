@@ -16,7 +16,7 @@ metadata:
         a8r.io/rollouts.image-repo.name: datawire/quote
         a8r.io/rollouts.image-repo.type: dockerhub
         a8r.io/rollouts.mappings: quote-backend
-        a8r.io/rollouts.scm.branch: master
+        a8r.io/rollouts.scm.branch: dev
         a8r.io/rollouts.scm.path: manifests
         a8r.io/dependencies: "None"
 spec:
